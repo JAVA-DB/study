@@ -58,7 +58,7 @@ public class SignServiceImpl implements SignService{
             setSuccessResult(signUpResultDto);
         }else{
             LOGGER.info("[getSignUpResult] 실패 처리 완료");
-            setFailResult(signUpResultDto)
+            setFailResult(signUpResultDto);
         }
 
         return signUpResultDto;

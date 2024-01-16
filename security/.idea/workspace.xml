@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9a0214a-82e0-440d-a174-b799fb836c4b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springboot/security/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springboot/security/jwt/JwtAuthenticationFilter.java" afterDir="false" />
-    </list>
+    <list default="true" id="e9a0214a-82e0-440d-a174-b799fb836c4b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +102,7 @@
       <workItem from="1704969076206" duration="9293000" />
       <workItem from="1704988610741" duration="837000" />
       <workItem from="1705294001191" duration="1601000" />
-      <workItem from="1705315700150" duration="12360000" />
+      <workItem from="1705315700150" duration="12472000" />
     </task>
     <servers />
   </component>
