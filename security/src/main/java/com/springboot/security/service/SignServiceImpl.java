@@ -1,6 +1,8 @@
 package com.springboot.security.service;
 
 import com.springboot.security.common.CommonResponse;
+import com.springboot.security.data.dto.SignInResultDto;
+import com.springboot.security.data.dto.SignUpResultDto;
 import com.springboot.security.data.entity.User;
 import com.springboot.security.data.repository.UserRepository;
 import com.springboot.security.handler.CustomAccessDeniedHandler;
@@ -72,20 +74,24 @@ public class SignServiceImpl implements SignService{
         LOGGER.info("[getSignInResult] Id : {}", id);
 
         LOGGER.info("[getSignInResult] 패스워드 비교 수행");
-        if(passwordEncoder.matches(password, user.getPassword())){
+        System.out.println(password);
+        System.out.println(user.getPassword());
+        System.out.println(passwordEncoder.encode(password));
+
+        if(!passwordEncoder.matches(password, user.getPassword())){
             throw new RuntimeException();
         }
         LOGGER.info("[getSignInResult] 패스워드 일치");
 
         LOGGER.info("[getSignInResult] SignInResultDto 객체 생성");
         SignInResultDto signInResultDto = SignInResultDto.builder()
-                .token(jwtTokenProvider.createToken(String.valueOf(user.getUid()), usergetRolse()))
+                .token(jwtTokenProvider.createToken(String.valueOf(user.getUid()), user.getRoles()))
                 .build();
 
         LOGGER.info("[getSignInResult] SignInResultDto 객체에 값 주입");
         setSuccessResult(signInResultDto);
 
-        return SignInResultDto;
+        return signInResultDto;
 
     }
 

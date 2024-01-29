@@ -4,14 +4,20 @@ import com.springboot.security.handler.CustomAccessDeniedHandler;
 import com.springboot.security.handler.CustomAuthenticationEntryPoint;
 import com.springboot.security.jwt.JwtAuthenticationFilter;
 import com.springboot.security.jwt.JwtTokenProvider;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+@Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final JwtTokenProvider jwtTokenProvider;
 
@@ -28,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/sign-api/sing-in", "/sign-api/sing-up","/sing-api/exception").permitAll()
+                .antMatchers("/sign-api/sign-in", "/sign-api/sign-up","/sign-api/exception").permitAll()
                 .antMatchers(HttpMethod.GET, "/product/**").permitAll()
                 .antMatchers("**exception**").permitAll()
                 .anyRequest().hasAnyRole("ADMIN")
@@ -41,7 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers("/v2/api-docs", "swagger-resources/**", "/swagger-ui.html", "webjars/**", "/swagger/**", "sign-api/exception");
+    public void configure(WebSecurity webSecurity) {
+        webSecurity.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**", "/swagger/**", "/sign-api/exception");
     }
 }
