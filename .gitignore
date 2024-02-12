@@ -147,3 +147,4 @@ gradle-app.setting
 #my
 application.properties
 logback-spring.xml
+.idea
